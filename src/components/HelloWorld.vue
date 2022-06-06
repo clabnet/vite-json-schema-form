@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VueForm from '@lljj/vue3-form-naive';
+import VueForm from '@lljj/vue-json-schema-form';
 
 const formData = {};
 
