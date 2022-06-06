@@ -3,10 +3,7 @@
 
 Mi goal is to use VUE JSON Schema Form with Vite.
 
-I don't know how to add correctly the import dependency on HelloWorld component.
-
-`Failed to resolve import "@lljj/vue-json-schema-form" from "src/components/HelloWorld.vue". Does the file exist?`
-
+Is there a continuos loop.
 
 Thanks if you help me to solve.
 
