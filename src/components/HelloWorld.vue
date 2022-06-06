@@ -1,36 +1,54 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 
-defineProps<{ msg: string }>()
+import VueForm from '../../node_modules/vue-json-schema-form/dist/vue-json-schema-form.umd.js';
 
-const count = ref(0)
+const formData = {}
+
+const schema = {
+  type: 'object',
+  required: [
+    'userName',
+    'age',
+  ],
+  properties: {
+    userName: {
+      type: 'string',
+      title: 'Username',
+      default: 'Liu.Jun',
+    },
+    age: {
+      type: 'number',
+      title: 'Age'
+    },
+    bio: {
+      type: 'string',
+      title: 'Bio',
+      minLength: 10,
+      default: 'The more you know, the less you know',
+    }
+  }
+}
+
+const uiSchema = {
+  bio: {
+    'ui:options': {
+      placeholder: 'Please enter your bio.',
+      type: 'textarea',
+      rows: 1
+    }
+  }
+}
+
+
+
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <VueForm v-model="formData"
+    :ui-schema="uiSchema"
+    :schema="schema">
+  </VueForm>
 
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
 </template>
 
 <style scoped>
