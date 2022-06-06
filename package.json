@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.36"
+    "buefy": "^0.9.21",
+    "vue": "^3.2.36",
+    "vue-json-schema-form": "^1.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
