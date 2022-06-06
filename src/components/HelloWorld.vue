@@ -1,15 +1,11 @@
 <script setup lang="ts">
+import VueForm from '@lljj/vue3-form-naive';
 
-import VueForm from '../../node_modules/vue-json-schema-form/dist/vue-json-schema-form.umd.js';
-
-const formData = {}
+const formData = {};
 
 const schema = {
   type: 'object',
-  required: [
-    'userName',
-    'age',
-  ],
+  required: ['userName', 'age'],
   properties: {
     userName: {
       type: 'string',
@@ -18,37 +14,30 @@ const schema = {
     },
     age: {
       type: 'number',
-      title: 'Age'
+      title: 'Age',
     },
     bio: {
       type: 'string',
       title: 'Bio',
       minLength: 10,
       default: 'The more you know, the less you know',
-    }
-  }
-}
+    },
+  },
+};
 
 const uiSchema = {
   bio: {
     'ui:options': {
       placeholder: 'Please enter your bio.',
       type: 'textarea',
-      rows: 1
-    }
-  }
-}
-
-
-
+      rows: 1,
+    },
+  },
+};
 </script>
 
 <template>
-  <VueForm v-model="formData"
-    :ui-schema="uiSchema"
-    :schema="schema">
-  </VueForm>
-
+  <VueForm v-model="formData" :ui-schema="uiSchema" :schema="schema"> </VueForm>
 </template>
 
 <style scoped>
